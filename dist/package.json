@@ -1,0 +1,18 @@
+{
+  "name": "@myorg/my-private-lib",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
+  "peerDependencies": {
+    "typescript": "^7.0.2"
+  }
+}

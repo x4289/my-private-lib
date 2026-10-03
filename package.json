@@ -15,7 +15,8 @@
   "scripts": {
     "build:js": "bun build ./src/index.ts --outdir ./dist --target node",
     "build:types": "tsc --emitDeclarationOnly",
-    "build": "bun run build:js && bun run build:types",
+    "build:package": "bun run ./scripts/prepare-dist.ts",
+    "build": "bun run build:js && bun run build:types && bun run build:package",
     "prepack": "bun run build"
   },
   "devDependencies": {
