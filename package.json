@@ -1,16 +1,27 @@
 {
   "name": "@myorg/my-private-lib",
   "version": "1.0.0",
-  "description": "My private utility library",
-  "main": "index.ts",
-  "module": "index.ts",
-  "types": "index.ts",
   "private": true,
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build:js": "bun build ./src/index.ts --outdir ./dist --target node",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "bun run build:js && bun run build:types",
+    "prepack": "bun run build"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "^1.4.2"
   },
   "peerDependencies": {
-    "typescript": "^7"
+    "typescript": "^7.0.2"
   }
 }
